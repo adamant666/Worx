@@ -56,9 +56,9 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // ------- Bluetooth4.0/BLE module -----------------------------------
 // see Wiki on how to install the BLE module and configure the jumpers:
 // https://wiki.ardumower.de/index.php?title=Ardumower_Sunray#Bluetooth_BLE_UART_module
-#define BLE_NAME      "Alfred" // Bluetooth Low Energy (BLE) name to advertise
-#define ENABLE_PASS   1        // comment out to disable password authentication
-#define PASS          123456   // choose password for WiFi/BLE communication (NOTE: has to match the connection password in the App!)
+//#define BLE_NAME      "Alfred" // Bluetooth Low Energy (BLE) name to advertise
+//#define ENABLE_PASS   1        // comment out to disable password authentication
+//#define PASS          123456   // choose password for WiFi/BLE communication (NOTE: has to match the connection password in the App!)
 
 // -------- IMU sensor  ----------------------------------------------
 // choose one MPU IMU (make sure to connect AD0 on the MPU board to 3.3v)
@@ -110,9 +110,9 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // NOTE: if using non-default Ardumower chassis and your freewheel is at frontside (gear motors at backside), have may have to swap motor cables, 
 // more info here: https://wiki.ardumower.de/index.php?title=Ardumower_Chassis_%27mountain_mod%27)
 #define FREEWHEEL_IS_AT_BACKSIDE   false   // default Ardumower: true   (change to false, if your freewheel is at frontside) - this is used for obstacle avoidance
-#define WHEEL_BASE_CM         39         // wheel-to-wheel distance (cm)        
+#define WHEEL_BASE_CM         36         // wheel-to-wheel distance (cm)        
 #define WHEEL_DIAMETER        205        // wheel diameter (mm)                 
-#define MOWER_SIZE            60         // mower / chassis size / length in cm
+#define MOWER_SIZE            54         // mower / chassis size / length in cm
 
 //#define ENABLE_ODOMETRY_ERROR_DETECTION  true    // use this to detect odometry erros
 #define ENABLE_ODOMETRY_ERROR_DETECTION  false
@@ -174,7 +174,7 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // certain time (normally a few seconds) and the mower will try again and set a virtual obstacle after too many tries
 // On the other hand, the overload detection will detect situations the fault signal cannot detect: slightly higher current for a longer time 
 
-#define MOW_MOTOR_COUNT    1       // number of mowing motors (1-5, >1 requires owlRobotics platform)
+#define MOW_MOTOR_COUNT    5       // number of mowing motors (1-5, >1 requires owlRobotics platform)
 #define MOW_ADJUST_HEIGHT  false   // can the mowing height be adjusted by an additional motor?
 
 // #define MAX_MOW_RPM  1900   // use this to set max RPM (note: requires mowing motor with rpm control!) 
@@ -185,8 +185,8 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 #define MOW_OVERLOAD_CURRENT 2.0    // mowing motor overload current (amps)
 
 // should the direction of mowing motor toggle each start? (yes: true, no: false)
-#define MOW_TOGGLE_DIR       true
-//#define MOW_TOGGLE_DIR       false
+//#define MOW_TOGGLE_DIR       true
+#define MOW_TOGGLE_DIR       false
 
 // should the error on motor overload detection be enabled?
 //#define ENABLE_OVERLOAD_DETECTION  true    // robot will stop on overload
@@ -240,12 +240,12 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // you can activate an NTRIP client to receive RTK RTCM data from an NTRIP caster/server and to send this data to the ublox receiver (via USB)
 // (Sunray will properly configure the ublox receiver for this, if 'GPS_CONFIG true')
 //#define ENABLE_NTRIP 1            // must be activated to use Linux NTRIP
-#define NTRIP_HOST "www.sapos-nw-ntrip.de"   // sapos nrw
+#define NTRIP_HOST "caster.centipede.fr"   
 #define NTRIP_PORT 2101
-#define NTRIP_MOUNT "VRS_3_4G_NW"
-#define NTRIP_USER "user"
-#define NTRIP_PASS "pass"
-#define NTRIP_CLIENT_AGENT_NAME "NTRIPClient for Arduino v1.0"
+#define NTRIP_MOUNT "MANY"
+#define NTRIP_USER "centipede"
+#define NTRIP_PASS "centipede"
+//#define NTRIP_CLIENT_AGENT_NAME "NTRIPClient for Arduino v1.0"
 // choose ONE option only how to generate the GGA message for the NTRIP login (disable ALL to disable GGA sending):
 // 1) the GGA message will be generated based on the base coordinate in the Sunray App (you can either use relative or absolute position mode) 
 #define NTRIP_APP_GGA_MESSAGE 1
@@ -262,12 +262,12 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // robot1/gps/sol       (current gps solution as text)
 // robot1/gps/pos       (current gps position as text)
 //#define ENABLE_MQTT  true                           // start MQTT client?  (true for yes, false for no)
-#define ENABLE_MQTT  false
-#define MQTT_TOPIC_PREFIX  "robot1"                 // the MQTT topic prefix for your robot 
-#define MQTT_SERVER  "192.168.2.27"                 // your MQTT broker IP or hostname (e.g. "broker.mqtt-dashboard.com")
-#define MQTT_PORT  1883
-#define MQTT_USER "user"
-#define MQTT_PASS "pass"
+//#define ENABLE_MQTT  false
+//#define MQTT_TOPIC_PREFIX  "robot1"                 // the MQTT topic prefix for your robot 
+//#define MQTT_SERVER  "192.168.2.27"                 // your MQTT broker IP or hostname (e.g. "broker.mqtt-dashboard.com")
+//#define MQTT_PORT  1883
+//#define MQTT_USER "user"
+//#define MQTT_PASS "pass"
 
 // ------ ultrasonic sensor -----------------------------
 // see Wiki on how to install the ultrasonic sensors: 
@@ -296,7 +296,7 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // see Wiki on how to install bumperduino or freewheel sensor:
 // https://wiki.ardumower.de/index.php?title=Bumper_sensor
 // https://wiki.ardumower.de/index.php?title=Free_wheel_sensor
-#define BUMPER_ENABLE true
+#define BUMPER_ENABLE false
 //#define BUMPER_ENABLE false
 #define BUMPER_INVERT false       // invert bumper sensor state? 
 #define BUMPER_DEADTIME 1000  		// linear motion dead-time (ms) after bumper is allowed to trigger
@@ -493,9 +493,9 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 #define CONSOLE_BAUDRATE    115200    // baudrate used for console
 //#define CONSOLE_BAUDRATE    921600  // baudrate used for console
 #define BLE_BAUDRATE    115200        // baudrate used for BLE
-#define GPS_BAUDRATE  115200          // baudrate for GPS RTK module
+#define GPS_BAUDRATE  460800          // baudrate for GPS RTK module
 #define WIFI_BAUDRATE 115200          // baudrate for WIFI module
-#define ROBOT_BAUDRATE 19200         // baudrate for Linux serial robot (non-Ardumower)
+#define ROBOT_BAUDRATE 115200         // baudrate for Linux serial robot (non-Ardumower)
 
 #ifdef __SAM3X8E__                 // Arduino Due
   #define WIFI Serial1
