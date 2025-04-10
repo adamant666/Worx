@@ -146,7 +146,7 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 //#define MOTOR_DRIVER_BRUSHLESS_GEARS_DRV8308  1   // uncomment for brushless DRV8308 driver and gear/traction motors 
 //#define MOTOR_DRIVER_BRUSHLESS_GEARS_A4931  1   // uncomment for brushless A4931 driver and gear/traction motors
 
-#define MOTOR_FAULT_CURRENT 3.0    // gear motors fault current (amps)
+#define MOTOR_FAULT_CURRENT 2.1    // gear motors fault current (amps)
 #define MOTOR_TOO_LOW_CURRENT 0.005   // gear motor too low current (amps), set to zero (0) to disable
 #define MOTOR_OVERLOAD_CURRENT 1.2    // gear motors overload current (amps)
 
@@ -157,10 +157,10 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 
 // motor speed control (PID coefficients) - these values are tuned for Ardumower motors
 // general information about PID controllers: https://wiki.ardumower.de/index.php?title=PID_control
-#define MOTOR_PID_LP     0.0    // encoder low-pass filter (use for low encoder tickcount - use zero to disable)
-#define MOTOR_PID_KP     0.5    // 0.5 do not change 2.0 (for non-Ardumower motors or if the motor speed control is too fast you may try: KP=1.0, KI=0, KD=0)
+#define MOTOR_PID_LP     0.00    // encoder low-pass filter (use for low encoder tickcount - use zero to disable)
+#define MOTOR_PID_KP     2.00   // 0.5 do not change 2.0 (for non-Ardumower motors or if the motor speed control is too fast you may try: KP=1.0, KI=0, KD=0)
 #define MOTOR_PID_KI     0.01   // 0.01 do not change 0.03
-#define MOTOR_PID_KD     0.01   // 0.01 do not change 0.03
+#define MOTOR_PID_KD     0.00   // 0.01 do not change 0.03
 #define MOTOR_PID_LIMIT  255    // output limit - do not change 255
 #define MOTOR_PID_RAMP   0      // output derivative limit - do not change 0
 
@@ -180,7 +180,7 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 // #define MAX_MOW_RPM  1900   // use this to set max RPM (note: requires mowing motor with rpm control!) 
 //#define MAX_MOW_PWM 200  // use this to permanently reduce mowing motor power (255=max)
 
-#define MOW_FAULT_CURRENT 8.0       // mowing motor fault current (amps)
+#define MOW_FAULT_CURRENT 3.0       // mowing motor fault current (amps)
 #define MOW_TOO_LOW_CURRENT 0.005   // mowing motor too low current (amps) , set to zero (0) to disable
 #define MOW_OVERLOAD_CURRENT 2.0    // mowing motor overload current (amps)
 
@@ -318,10 +318,10 @@ Also, you may choose the serial port below for serial monitor output (CONSOLE).
 //#define CURRENT_FACTOR 1.98   // PCB1.4 (non-bridged INA169, max. 2.5A)
 //#define CURRENT_FACTOR 2.941  // PCB1.4 (bridged INA169, max. 5A)
 
-#define GO_HOME_VOLTAGE   25.5  // start going to dock below this voltage
+#define GO_HOME_VOLTAGE   17.5  // start going to dock below this voltage
 // The battery will charge if both battery voltage is below that value and charging current is above that value.
-#define BAT_FULL_VOLTAGE  30.0  // start mowing again at this voltage
-#define BAT_UNDERVOLTAGE  18.9  // battery switch off voltage
+#define BAT_FULL_VOLTAGE  20.8  // start mowing again at this voltage
+#define BAT_UNDERVOLTAGE  15.5  // battery switch off voltage
 #define BAT_FULL_CURRENT  -0.1   // start mowing again below this charging current (amps)
 #define BAT_FULL_SLOPE    0.002  // start mowing again below this voltage slope (V/min - choose 0.0 if you have charging issues)
 
