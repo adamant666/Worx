@@ -1,0 +1,5 @@
+Modul      A1  A0  Cím
+INABAT     -   -   0x40
+INAMOW     -   X   0x41
+INALEFT    X   -   0x44
+INARIGHT   X   X   0x45
